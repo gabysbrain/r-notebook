@@ -1,2 +1,42 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
+
+h1.entry-title {
+  counter-reset:section;
+  text-align: center;
+}
+
+h1.entry-title::before {
+  content: "― ";
+  font-weight: normal;
+  color: #AAA;
+}
+
+h1.entry-title::after {
+  content: " ―";
+  font-weight: normal;
+  color: #AAA;
+}
+
+.entry-content h2 {
+  margin-top: 1.5em;
+  //border-top: 4px solid #e0e0e0;
+  padding-top: .5em;
+  counter-reset: subsection;
+}
+
+.entry-content h2::before {
+  content: counter(section) " ";
+  counter-increment: section;
+}
+
+.entry-content h3 {
+  font-size: 1.17em;
+  margin-top: 1em;
+}
+
+.entry-content h3::before {
+content: counter(section) "." counter(subsection) " ";
+counter-increment: subsection;
+}
+
