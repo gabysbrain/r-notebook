@@ -1,6 +1,11 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
 
+// make the text size smaller
+@media only screen and (min-width: 992px) {
+  body { font-size: 1em; }
+}
+
 h1.entry-title {
   text-align: center;
 }
@@ -50,4 +55,5 @@ h1.entry-title::after {
     padding-left: 2.5em;
   }
 }
+
 
