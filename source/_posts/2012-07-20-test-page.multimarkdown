@@ -32,3 +32,11 @@ This uses knitr for processing the code
 1 + 1
 end.rcode-->
 
+### A more complex example with caching
+
+<!--begin.rcode test2,cache=TRUE
+  x.vals <- runif(10)
+  y.vals <- runif(10)
+  plot(x.vals, y.vals)
+end.rcode-->
+

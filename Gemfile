@@ -14,7 +14,6 @@ group :development do
   gem 'stringex', '~> 1.4.0'
   gem 'liquid', '~> 2.3.0'
   gem 'rpeg-multimarkdown', '~> 0.1.1'
-  gem 'rinruby'
 end
 
 gem 'sinatra', '~> 1.3.2'

@@ -1,11 +1,10 @@
 # multimarkdown renderer for jekyll
 #
-# from: https://github.com/danieldriver/jekyll/commit/a07766e3c5cb1c78b7b77643f850a67cb721763a
+# adapted from: https://github.com/danieldriver/jekyll/commit/a07766e3c5cb1c78b7b77643f850a67cb721763a
 
 
 module Jekyll
   require 'multimarkdown'
-  require 'rinruby'
 
   class MultimarkdownConverter < Converter
     safe false
@@ -26,12 +25,14 @@ module Jekyll
     end
 
     def convert(content)
+      puts MultiMarkdown.new(content).to_html
       MultiMarkdown.new(knit(content)).to_html
     end
 
     # runs everything through knitr
     def knit(content)
-      R.eval File.read(KNITR_PATH)
+      knit_content, status = Open3.capture2(KNITR_PATH, :stdin_data=>content)
+      knit_content
     end
   end
 end
