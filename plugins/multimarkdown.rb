@@ -5,9 +5,17 @@
 
 module Jekyll
   require 'multimarkdown'
+  require 'rinruby'
+
   class MultimarkdownConverter < Converter
     safe false
     priority :low
+
+    KNITR_PATH = File.join(File.dirname(__FILE__), "knit_markdown.R")
+
+    unless File.exists?(KNITR_PATH) and File.executable?(KNITR_PATH)
+      throw "knit_markdown.R is not found and executable"
+    end
 
     def matches(ext)
       ext =~ /multimarkdown/i
@@ -18,7 +26,12 @@ module Jekyll
     end
 
     def convert(content)
-      MultiMarkdown.new(content).to_html
+      MultiMarkdown.new(knit(content)).to_html
+    end
+
+    # runs everything through knitr
+    def knit(content)
+      R.eval File.read(KNITR_PATH)
     end
   end
 end
