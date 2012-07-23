@@ -25,14 +25,16 @@ module Jekyll
     end
 
     def convert(content)
-      puts MultiMarkdown.new(content).to_html
+      #puts MultiMarkdown.new(knit(content)).to_html
       MultiMarkdown.new(knit(content)).to_html
     end
 
     # runs everything through knitr
     def knit(content)
       knit_content, status = Open3.capture2(KNITR_PATH, :stdin_data=>content)
-      knit_content
+      # This is a hack to get the double backslashes in latex math 
+      # working with liquid templates
+      knit_content.gsub(/\\\\$/){"\\\\\\\\"}
     end
   end
 end
