@@ -78,10 +78,10 @@ html {
 // from: http://luikore.github.com/2011/09/good-things-learned-from-octopress/
 body {
   > div#main {
-    background: $sidebar-bg $noise-bg;
+    background: $sidebar-bg;
     border-bottom: 1px solid $page-border-bottom;
     > div {
-      background: $main-bg $noise-bg;
+      background: $main-bg;
       border-right: 1px solid $sidebar-border;
     }
   }
