@@ -40,3 +40,13 @@ end.rcode-->
   plot(x.vals, y.vals)
 end.rcode-->
 
+### Another plotting example using ggplot
+
+This is from http://had.co.nz/ggplot2/stat_smooth.html
+
+<!--begin.rcode test3,cache=TRUE
+  library(ggplot2)
+  c <- ggplot(mtcars, aes(y=wt, x=mpg, colour=factor(cyl))) 
+  c + stat_smooth(method=lm) + geom_point()
+end.rcode-->
+
