@@ -2,6 +2,18 @@
 
 library(knitr)
 
+args <- commandArgs(trailingOnly=TRUE)
+
+# the file name generating this R code
+# needed so we can put separate cache and image links
+post.name <- args[1]
+store.prefix <- if(is.na(post.name)) "" else post.name
+cache.path <- paste('cache', store.prefix, "", sep='/')
+image.save.path <- paste('source/images/knitr', store.prefix, "", sep='/')
+image.load.path <- paste('/images/knitr', store.prefix, "", sep='/')
+opts_chunk$set(cache.path=cache.path)
+opts_chunk$set(fig.path=image.save.path)
+
 pic.sample <- function() {
   sample(1000,1)
 }
@@ -21,7 +33,8 @@ query_plot_hook <- function(x, options) {
 
   base <- opts_knit$get('base.url')
   if (is.null(base)) base <- ''
-  filename <- paste(x, collapse = '.')
+  # adjust the base for the base path
+  filename <- paste(image.load.path, basename(paste(x,collapse='.')), sep='')
   if(options$fig.show == 'animate') {
     # set up the ffmpeg run
     ffmpeg.opts <- options$aniopts
@@ -43,8 +56,6 @@ query_plot_hook <- function(x, options) {
       if('loop' %in% mov.opts) 'loop="loop"')
     sprintf('<video %s><source src="%s?%d" type="video/mp4" />video of chunk %s</video>', opt.str, mov.fname, pic.sample(), options$label)
   } else {
-    #sprintf('![plot of chunk %s](%s%s) ', 
-            #options$label, base, filename)
     sprintf('![plot of chunk %s](%s%s?%d) ', 
             options$label, base, filename, pic.sample())
   }

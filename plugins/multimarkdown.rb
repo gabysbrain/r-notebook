@@ -10,12 +10,6 @@ module Jekyll
     safe false
     priority :low
 
-    KNITR_PATH = File.join(File.dirname(__FILE__), "knit_markdown.R")
-
-    unless File.exists?(KNITR_PATH) and File.executable?(KNITR_PATH)
-      throw "knit_markdown.R is not found and executable"
-    end
-
     def matches(ext)
       ext =~ /multimarkdown/i
     end
@@ -26,16 +20,9 @@ module Jekyll
 
     def convert(content)
       #puts MultiMarkdown.new(knit(content)).to_html
-      MultiMarkdown.new(knit(content)).to_html
+      MultiMarkdown.new(content).to_html
     end
 
-    # runs everything through knitr
-    def knit(content)
-      knit_content, status = Open3.capture2(KNITR_PATH, :stdin_data=>content)
-      # This is a hack to get the double backslashes in latex math 
-      # working with liquid templates
-      knit_content.gsub(/\\\\$/){"\\\\\\\\"}
-    end
   end
 end
 
