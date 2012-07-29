@@ -14,6 +14,10 @@ image.load.path <- paste('/images/knitr', store.prefix, "", sep='/')
 opts_chunk$set(cache.path=cache.path)
 opts_chunk$set(fig.path=image.save.path)
 
+# also get the input and output files
+in.file <- if(is.na(args[2])) stdin() else args[2]
+out.file <- if(is.na(args[3])) stdout() else args[3]
+
 pic.sample <- function() {
   sample(1000,1)
 }
@@ -74,6 +78,6 @@ opts_knit$set(progress=FALSE)
 #opts_knit$set(dev='png')
 opts_knit$set(out.format='custom')
 opts_knit$set(input.dir=getwd())
-knit(file("stdin"), stdout())
+knit(in.file, out.file)
 
 
