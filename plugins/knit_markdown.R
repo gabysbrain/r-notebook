@@ -15,7 +15,7 @@ opts_chunk$set(cache.path=cache.path)
 opts_chunk$set(fig.path=image.save.path)
 
 # also get the input and output files
-in.file <- if(is.na(args[2])) stdin() else args[2]
+in.file <- if(is.na(args[2])) file("stdin") else args[2]
 out.file <- if(is.na(args[3])) stdout() else args[3]
 
 pic.sample <- function() {
