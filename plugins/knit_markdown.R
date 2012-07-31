@@ -65,10 +65,16 @@ query_plot_hook <- function(x, options) {
   }
 }
 
+# highlight R code on output
+code_hook <- function(x, options) {
+  paste("\n\n{% codeblock lang:r %}", x, "{% endcodeblock %}\n\n", sep="\n")
+}
+
 # hack render_markdown so it doesn't override my custom hook
 render_custom <- function() {
   render_markdown(strict=TRUE)
-  knit_hooks$set(plot=query_plot_hook)
+  knit_hooks$set(plot=query_plot_hook,
+                 source=code_hook)
 }
 
 # need to read everything through stdin and stdout
