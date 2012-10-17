@@ -67,7 +67,10 @@ query_plot_hook <- function(x, options) {
 
 # highlight R code on output
 code_hook <- function(x, options) {
-  paste("\n\n{% codeblock lang:r %}", x, "{% endcodeblock %}\n\n", sep="\n")
+  print(options)
+  prefix <- sprintf("\n\n{%% codeblock %s lang:r %%}", options$label)
+  suffix <- "{% endcodeblock %}\n\n"
+  paste(prefix, x, suffix, sep="\n")
 }
 
 # hack render_markdown so it doesn't override my custom hook
