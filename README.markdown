@@ -17,15 +17,12 @@ for viewing in an external previewer such as Marked (<http://markedapp.com/>).
 ## Installation ##
 
 1. Make your own clone of this repository
-2. Follow the octopress setup instructions at <http://octopress.org/docs/setup/>
-3. Install R from CRAN (<http://cran.r-project.org/>)
-4. Install the knitr package in R: `install.packages('knitr')`
-5. Optional: install the ggplot2 package in R: `install.packages('ggplot2')`.
-   This is needed for one of the items on the demo page
-6. Run `rake preview` to start the octopress preview server
-7. Make sure the demo page looks ok at 
+2. Install R from CRAN (<http://cran.r-project.org/>)
+3. Follow the octopress setup instructions at <http://octopress.org/docs/setup/>
+5. Run `rake preview` to start the octopress preview server
+6. Make sure the demo page looks ok at 
    <http://localhost:4000/blog/2012/07/20/demo-page/>.
-8. Enjoy!
+7. Enjoy!
 
 ## TODOs ##
 

@@ -28,7 +28,7 @@ server_port     = "4000"      # port for preview server eg. localhost:4000
 
 
 desc "Initial setup for Octopress: copies the default theme into the path of Jekyll's generator. Rake install defaults to rake install[classic] to install a different theme run rake install[some_theme_name]"
-task :install, :theme do |t, args|
+task :install, [:theme] => [:r_setup] do |t, args|
   if File.directory?(source_dir) || File.directory?("sass")
     abort("rake aborted!") if ask("A theme is already installed, proceeding will overwrite existing files. Are you sure?", ['y', 'n']) == 'n'
   end
@@ -343,6 +343,33 @@ task :setup_github_pages, :repo do |t, args|
     end
   end
   puts "\n---\n## Now you can deploy to #{url} with `rake deploy` ##"
+end
+
+#######################
+#    R setup stuff    #
+#######################
+
+desc "Setup required R modules"
+task :r_setup do
+  raise "### Rscript is not in path, please install R or be sure Rscript can be found in PATH." unless which('Rscript')
+  puts "## Installing required R modules"
+  system "Rscript -e \"install.packages(c('knitr', 'ggplot2'))\""
+end
+
+#######################
+#  Utility functions  #
+#######################
+
+# from http://stackoverflow.com/questions/2108727/which-in-ruby-checking-if-program-exists-in-path-from-ruby
+def which(cmd)
+  exts = ENV['PATHEXT'] ? ENV['PATHEXT'].split(';') : ['']
+  ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
+    exts.each { |ext|
+      exe = "#{path}/#{cmd}#{ext}"
+      return exe if File.executable? exe
+    }
+  end
+  return nil
 end
 
 def ok_failed(condition)
