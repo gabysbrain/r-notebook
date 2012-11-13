@@ -55,7 +55,7 @@ end.rcode-->
 A series of plots can be converted to an animation by setting 
 `fig.show=animate` in the figure options
 
-<!--begin.rcode test4,cache=TRUE,fig.width=12,fig.height=12,dev='png',fig.show='animate',aniopts='controls'
+<!--begin.rcode test4,cache=TRUE,fig.width=12,fig.height=12,dev='png',fig.show='animate',aniopts='controls;loop'
   for(i in 1:5) {
     plot(runif(10), runif(10))
   }
