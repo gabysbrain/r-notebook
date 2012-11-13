@@ -50,3 +50,15 @@ This is from http://had.co.nz/ggplot2/stat_smooth.html
   c + stat_smooth(method=lm) + geom_point()
 end.rcode-->
 
+### Animation test
+
+A series of plots can be converted to an animation by setting 
+`fig.show=animate` in the figure options
+
+<!--begin.rcode test4,cache=TRUE,fig.width=12,fig.height=12,dev='png',fig.show='animate',aniopts='controls'
+  for(i in 1:5) {
+    plot(runif(10), runif(10))
+  }
+end.rcode-->
+
+
