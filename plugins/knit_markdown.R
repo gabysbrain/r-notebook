@@ -44,6 +44,7 @@ query_plot_hook <- function(x, options) {
     ffmpeg.opts <- options$aniopts
     fig.fname <- paste(sub(paste(fig.num, '$',sep=''), '', x[1]), "%d.png", sep="")
     mov.fname <- paste(sub(paste(fig.num, '$',sep=''), '', x[1]), ".mp4", sep="")
+    mov.linkname <- paste(image.load.path, basename(mov.fname), sep='')
     if(is.na(ffmpeg.opts)) ffmpeg.opts <- NULL
 
     ffmpeg.cmd <- paste("ffmpeg", "-y", "-r", 1/options$interval, 
@@ -58,7 +59,7 @@ query_plot_hook <- function(x, options) {
       if(!is.null(options$out.height)) sprintf('height=%s', options$out.height),
       if('controls' %in% mov.opts) 'controls="controls"',
       if('loop' %in% mov.opts) 'loop="loop"')
-    sprintf('<video %s><source src="%s?%d" type="video/mp4" />video of chunk %s</video>', opt.str, mov.fname, pic.sample(), options$label)
+    sprintf('<video %s><source src="%s?%d" type="video/mp4" />video of chunk %s</video>', opt.str, mov.linkname, pic.sample(), options$label)
   } else {
     sprintf('![plot of chunk %s](%s%s?%d) ', 
             options$label, base, filename, pic.sample())
