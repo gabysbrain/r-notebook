@@ -5,6 +5,22 @@ date: 2012-07-20 12:50
 categories: 
 ---
 
+## Basic elements
+
+### Ordered list
+
+1. Item 1
+2. Item 2
+3. Item 3
+4. Item 4
+
+### Unordered list
+
+* an item
+* another item
+* still more items coming!
+* see?
+* ok, that's it
 
 ## Mathjax test
 
