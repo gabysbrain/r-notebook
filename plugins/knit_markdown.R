@@ -89,6 +89,14 @@ txtProgressBar <- function (min = 0, max = 1, initial = 0, char = "=",
   txtProgressBar.old(min, max, initial, char, width, title, label, style, file)
 }
 
+# Also need to print the section progress to stderr
+new.print.block <- function (x, ...) {
+  params = x$params
+  cat("\nlabel:", params$label, file=stderr())
+  cat("\n", file=stderr())
+}
+assignInNamespace('print.block', new.print.block, 'knitr')
+
 # main processing
 pat_html()
 render_custom()
