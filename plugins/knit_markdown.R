@@ -68,7 +68,6 @@ query_plot_hook <- function(x, options) {
 
 # highlight R code on output
 code_hook <- function(x, options) {
-  print(options)
   prefix <- sprintf("\n\n{%% codeblock %s lang:r %%}", options$label)
   suffix <- "{% endcodeblock %}\n\n"
   paste(prefix, x, suffix, sep="\n")
@@ -81,11 +80,20 @@ render_custom <- function() {
                  source=code_hook)
 }
 
-# need to read everything through stdin and stdout
+# remap the progress bar so it goes to stderr where 
+# we can get it on the console
+txtProgressBar.old <- txtProgressBar
+txtProgressBar <- function (min = 0, max = 1, initial = 0, char = "=", 
+                            width = NA, title, label, 
+                            style = 1, file = stderr()) {
+  txtProgressBar.old(min, max, initial, char, width, title, label, style, file)
+}
+
+# main processing
 pat_html()
 render_custom()
-opts_knit$set(progress=FALSE)
 #opts_knit$set(dev='png')
+opts_knit$set(progress=TRUE)
 opts_knit$set(out.format='custom')
 opts_knit$set(input.dir=getwd())
 knit(in.file, out.file)
