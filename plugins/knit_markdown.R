@@ -97,6 +97,8 @@ new.print.block <- function (x, ...) {
 }
 assignInNamespace('print.block', new.print.block, 'knitr')
 
+cat("===== Processing ", post.name, "... =====", sep="", file=stderr())
+
 # main processing
 pat_html()
 render_custom()
