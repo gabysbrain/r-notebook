@@ -1,19 +1,14 @@
-source "http://rubygems.org"
+# If you do not have OpenSSL installed, update
+# the following line to use "http://" instead
+source 'https://rubygems.org'
 
-group :development do
-  gem 'rake', '~> 0.9.2'
-  gem 'rack', '~> 1.4.1'
-  gem 'jekyll', '~> 0.11.2'
-  gem 'rdiscount', '~> 1.6.8'
-  gem 'pygments.rb', '~> 0.2.12'
-  gem 'RedCloth', '~> 4.2.9'
-  gem 'haml', '~> 3.1.6'
-  gem 'compass', '~> 0.12.1'
-  gem 'rubypants', '~> 0.2.0'
-  gem 'rb-fsevent', '~> 0.9'
-  gem 'stringex', '~> 1.4.0'
-  gem 'liquid', '~> 2.3.0'
-  gem 'rpeg-multimarkdown', '~> 0.1.1'
-end
+gem "middleman", "~>3.3.10"
 
-gem 'sinatra', '~> 1.3.2'
+# Live-reloading plugin
+gem "middleman-livereload", "~> 3.1.0"
+
+# For faster file watcher updates on Windows:
+gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
+
+# Windows does not come with time zone data
+gem "tzinfo-data", platforms: [:mswin, :mingw]

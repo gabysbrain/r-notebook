@@ -1,0 +1,20 @@
+---
+title: test knitr
+date: 2014-02-15 13:44 CET
+tags:
+---
+
+This is a test document
+
+```{r, cache=TRUE}
+1 + 1
+```
+
+```{r}
+x <- runif(5)
+y <- runif(5)
+plot(x,y)
+```
+
+Inline: `r 2+4`
+
