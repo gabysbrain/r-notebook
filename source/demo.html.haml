@@ -1,0 +1,50 @@
+---
+title: Demo
+---
+
+%header
+  %nav
+    %ul
+      %li= link_to 'Home', 'index.html'
+      %li= link_to 'Projects', 'projects.html'
+      %li= link_to 'History', 'history.html'
+      %li= link_to 'Tags', 'tags.html'
+%main(role="main")
+  %article
+    %header
+      %h1.title Random experiment #3
+      %h2.subtitle Adventures in science!
+      .project-name Mr Project
+      %time(datetime="2015-04-05 23:45") April 5, 2015 23:45
+      %ul.tags
+        %li= lorem.word
+        %li= lorem.word
+        %li= lorem.word
+        %li= lorem.word
+    %p= lorem.paragraph
+
+    %h2 Motivation
+    %p= lorem.paragraph
+    %p= lorem.paragraph
+    %p= lorem.paragraph
+
+    %h2 Other stuff
+    %p Various other things that can occur
+
+    %h3 Code example
+    %p Here is some code
+    %pre
+      %code><
+        val x = 3 * 4
+        def f(x:Int) = x * 4
+        f(65)
+
+    %h3 Image example
+    %p This is an amazing image!
+    %figure
+      %img{:src => lorem.image('300x400')}
+      %figcaption= lorem.words 7
+
+    %h3 Conclusion
+%footer
+  / Foot things
