@@ -42,6 +42,9 @@ configure :development do
   activate :livereload
 end
 
+# pretty urls
+activate :directory_indexes
+
 # Methods defined in the helpers block are available in templates
 # helpers do
 #   def some_helper
