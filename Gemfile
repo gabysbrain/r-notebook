@@ -17,3 +17,7 @@ gem "tzinfo-data", platforms: [:mswin, :mingw]
 gem "bourbon"
 gem "neat"
 gem "bitters"
+
+# styleguide creator
+gem "livingstyleguide"
+
