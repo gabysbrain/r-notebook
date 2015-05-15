@@ -15,6 +15,8 @@
 #
 # With no layout
 # page "/path/to/file.html", :layout => false
+page '/styleguide.html', :layout => false
+
 #
 # With alternative layout
 # page "/path/to/file.html", :layout => :otherlayout

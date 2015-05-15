@@ -19,5 +19,5 @@ gem "neat"
 gem "bitters"
 
 # styleguide creator
-gem "livingstyleguide"
+gem "livingstyleguide", "~> 1.2.0"
 
