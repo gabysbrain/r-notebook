@@ -9,16 +9,17 @@ article {
     @include flex-wrap(wrap);
     //@include flex-direction(column);
     @include justify-content(space-between);
+    margin-bottom: 1em;
 
     h1 {
       @include order(1);
-      font-size: 2.6em;
+      font-size: $h1-font-size;
       margin: 0;
       width: 100%;
     }
     h2 {
       @include order(2);
-      font-size: 1.8em;
+      font-size: $h2-font-size;
       color: $medium-gray;
       margin: 0;
       width: 100%;
@@ -47,6 +48,7 @@ article {
     time {
       @include order(5);
       width: 100%;
+      color: $medium-gray;
     }
   }
 }
