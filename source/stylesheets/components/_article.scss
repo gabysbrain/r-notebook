@@ -1,0 +1,53 @@
+
+@import "font-awesome-compass";
+@import "font-awesome";
+
+article {
+  header {
+    @include clearfix;
+    @include display(flex);
+    @include flex-wrap(wrap);
+    //@include flex-direction(column);
+    @include justify-content(space-between);
+
+    h1 {
+      @include order(1);
+      font-size: 2.6em;
+      margin: 0;
+      width: 100%;
+    }
+    h2 {
+      @include order(2);
+      font-size: 1.8em;
+      color: $medium-gray;
+      margin: 0;
+      width: 100%;
+    }
+    .project-name {
+      @include order(3);
+      //@include align-self(flex-start);
+      a {
+        &:before {
+          @extend .fa;
+          @extend .fa-th;
+        }
+      }
+    }
+    ul.tags {
+      @include order(4);
+      //@include align-self(flex-end);
+      li {
+        display: inline-block;
+        a:before {
+          @extend .fa;
+          @extend .fa-tag;
+        }
+      }
+    }
+    time {
+      @include order(5);
+      width: 100%;
+    }
+  }
+}
+
