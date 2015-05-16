@@ -21,6 +21,9 @@ gem "bourbon"
 gem "neat"
 gem "bitters"
 
+# fontawesome!
+gem "font-awesome-sass"
+
 # styleguide creator
 gem "livingstyleguide", "~> 1.2.0"
 

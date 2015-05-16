@@ -7,6 +7,8 @@
 #   config.output_style = :compact
 # end
 
+require "font-awesome-sass"
+
 ###
 # Page options, layouts, aliases and proxies
 ###
