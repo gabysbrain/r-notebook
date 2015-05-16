@@ -23,6 +23,7 @@ article {
       color: $medium-gray;
       margin: 0;
       width: 100%;
+      border-bottom: none;
     }
     .project-name {
       @include order(3);
@@ -50,6 +51,27 @@ article {
       width: 100%;
       color: $medium-gray;
     }
+  }
+
+  // default header behavior
+  h1 {
+    font-size: $h1-font-size;
+  }
+  h2 {
+    font-size: $h2-font-size;
+    border-bottom: $base-border;
+  }
+  h3 {
+    font-size: $h3-font-size;
+  }
+  h4 {
+    font-size: $h4-font-size;
+  }
+  h5 {
+    font-size: $h5-font-size;
+  }
+  h6 {
+    font-size: $h6-font-size;
   }
 }
 
