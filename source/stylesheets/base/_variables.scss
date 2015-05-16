@@ -1,10 +1,20 @@
+
+// Debug grid
+/*$visual-grid: true;*/
+/*$visual-grid-color: red;*/
+/*$visual-grid-index: front;*/
+/*$visual-grid-opacity: 0.1;*/
+
+// The base size for everything
+$em-base: 16px;
+
 // Typography
 $base-font-family: 'Oxygen', sans-serif;
 $heading-font-family: 'Raleway', sans-serif;
 $mono-font-family: 'Anonymous Pro', monospace;
 
 // Font Sizes
-$base-font-size: 14px;
+$base-font-size: 1rem;
 
 // Line height
 $base-line-height: 1.5;
@@ -34,3 +44,4 @@ $base-border: 1px solid $base-border-color;
 // Forms
 $form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
