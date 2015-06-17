@@ -1,0 +1,23 @@
+
+@import "bourbon";
+
+header {
+  nav {
+    width: 100%;
+    background: $dark-gray;
+    padding: 0.4em 0 0.2em 0.5em;
+
+    li {
+      display: inline-block;
+      &, a {
+        font-size: rem(22);
+        color: white;
+
+        &:hover {
+          color: white;
+        }
+      } 
+    }
+  }
+}
+

@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     activesupport (4.1.11)
       i18n (~> 0.6, >= 0.6.9)
@@ -114,6 +115,8 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rails-assets-highlightjs (8.5.0)
+    rails-assets-jquery (2.1.4)
     rb-fsevent (0.9.5)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -152,5 +155,7 @@ DEPENDENCIES
   middleman-livereload (~> 3.4)
   neat
   normalize-scss
+  rails-assets-highlightjs!
+  rails-assets-jquery!
   tzinfo-data
   wdm (~> 0.1.0)

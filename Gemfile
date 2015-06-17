@@ -27,3 +27,9 @@ gem "font-awesome-sass"
 # styleguide creator
 gem "livingstyleguide", "~> 1.2.0"
 
+# bower assets
+source 'https://rails-assets.org' do
+  gem "rails-assets-highlightjs"
+  gem "rails-assets-jquery"
+end
+

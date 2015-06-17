@@ -34,10 +34,12 @@ title: Demo
     %h3 Code example
     %p Here is some code
     %pre
-      %code><
-        val x = 3 * 4
-        def f(x:Int) = x * 4
-        f(65)
+      %code
+        = preserve do
+          :escaped
+            val x = 3 * 4
+            def f(x:Int) = x * 4
+            f(65)
 
     %h3 Image example
     %p This is an amazing image!
